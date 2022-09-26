@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-    has_many :comments
-    has_many :likes
-    belongs_to :user
-    after_save :update_posts_counter
+  has_many :comments
+  has_many :likes
+  belongs_to :user
+  after_save :update_posts_counter
 
   def update_posts_counter
     user_id.increment!(:posts_counter)
