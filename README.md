@@ -19,9 +19,19 @@ To get a local copy up and running follow these simple example steps.
 - Have git installed.[Link to download git](https://git-scm.com/downloads)
 - Create a github repository.
 
-## Setup
+## Install
+Install all project dependencies by running the command below
+```
+ $ bundle install
+
+ $ bin/rails server
+
+ $ http://localhost:3000/
 ```
 
+## Error check
+```
+$ rubocop .
 ```
 
 -Follow the HTML-CSS linter confuguration to docs to setup linters [Link to Microverse linter docs](https://github.com/microverseinc/linters-config)
