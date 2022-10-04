@@ -1,5 +1,15 @@
-<h2>Posts List</h2>
-<% @posts.each do |p|%>
-  <h3><%= p.title %></h3>
-   <p><%= p.text %></p>
-<% end %>
+<section class="py-5  container">
+    <div class="row py-lg-5">
+    <div class="col-lg-3 col-md-2"></div>
+      <div class="col-lg-6 col-md-8 mx-auto">
+      <h3>Posts:<%= @user.posts.count %> </h3>
+        <% @user.posts.each do |post| %>
+        <div class="well">
+        <h4><%= post.title%></h4>
+        <p><%= post.text%></p>
+        </div>
+        <% end %>
+      </div>
+      <div class="col-lg-3 col-md-2"></div>
+    </div>
+  </section>
