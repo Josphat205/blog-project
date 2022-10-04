@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :find_user_id, except: [:new]
-  def new; end
-
+  def index
+  end
+  def new
+  end
   def create
     @post = @user.posts.create(post_params)
     if @post.save
