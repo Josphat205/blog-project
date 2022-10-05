@@ -11,6 +11,9 @@ RSpec.describe UsersController, type: :request do
     it('rendered :index template') do
       expect(response).to render_template(:index)
     end
+    it 'body should includes correct placeholder text' do
+      expect(response.body).to include('Username:')
+    end
   end
 
   describe ':show' do
@@ -29,6 +32,9 @@ RSpec.describe UsersController, type: :request do
 
     it('should assign User.find(params[:id]) to @user') do
       expect(assigns(:user)).to eq(@author)
+    end
+    it 'body should includes correct placeholder text' do
+      expect(response.body).to include('Bio:')
     end
   end
 end
