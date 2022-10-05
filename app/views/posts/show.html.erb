@@ -3,10 +3,17 @@
     <div class="col-lg-3 col-md-2"></div>
       <div class="col-lg-6 col-md-8 mx-auto">
         <div class="well">
+        <div class="row">
+        <div class="col-md-8">
         <h4><%= @post.title%></h4>
         <p><%= @post.text%></p>
-         <%= link_to 'Delete', user_post_path(@post.id), method: :delete, class: 'btn btn-danger' %>
-          <%= link_to 'Back', user_path, class: 'btn btn-default' %>
+        </div>
+        <div class="col-md-4">
+        <small>Comments:<%= @post.comments.count%> Likes:<%= @post.likes.count%></small>
+        </div>
+        </div>
+         <%= link_to 'Delete', user_post_path(@post.id), method: :delete, class: 'btn-sm btn btn-danger' %>
+          <%= link_to 'Back', user_posts_path, class: 'btn-sm btn btn-default' %>
         </div>
       </div>
       <div class="col-lg-3 col-md-2"></div>
@@ -16,14 +23,12 @@
     <div class="row py-lg-5">
     <div class="col-lg-3 col-md-2"></div>
       <div class="col-lg-6 col-md-8 mx-auto">
-      <h3>Comments:<%= %> 3</h3>
+      <h4>Comments:<%=@post.comments.count %></h4>
         <div class="well">
-        <h4>John</h4>
-        <p>This is a very nice post</p>
-        <h4>Allan</h4>
-        <p>This is a very nice post</p>
-        <h4>James</h4>
-        <p>This is a very nice post</p>
+        <% @post.comments.each do |comment|%>
+        <h5>User: <%=comment.author_id%></h5>
+        <p>comment: <%= comment.text%></p>
+        <% end%>
         <%# <%= link_to 'Read more', user_post_path(post), class: 'btn btn-default' %> 
         </div>
       </div>
