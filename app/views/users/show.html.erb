@@ -3,37 +3,38 @@
     <div class="row py-lg-5">
      <div class="col-lg-3 mb-3 col-md-2"></div>
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="display-5 fw-bold text-center">Users - [<%= @user.id %>]</h1>
-        <div class="col-lg-12 well">
-          <div class="row">
+        <h1 class="display-5 fw-bold text-center">User - [<%= @user.id %>]</h1>
+        <div class="col-lg-12">
+          <div class="row well ">
             <div class="col-lg-12">
               <div class="col-md-9">
-                <h3>Username: <%= @user.name %></h3> 
+                <h3><%= @user.name %></h3> 
               </div>
-              <div class="col-md-3">
+              <div class="">
+               <p class="text-center d-flex align-items-end">Number of posts:<%= @user.posts.count %></p>
+              </div>
               <small class="text-danger"><%= @user.created_at.to_fs(:short) %></small>
-              </div>
             </div>
           </div>
-          <div class="row mb-3">
+          <div class="row mb-3 well">
           <div class="col-md-12">
-            <p>Bio:<%= @user.bio %></p>
+            <p><strong>Bio:</strong><%= @user.bio %></p>
           </div>
           </div
     </div>
-    <%= link_to 'Posts', user_posts_path(@user.id), class: 'btn btn-info' %>
-     <%= link_to 'Back', root_path(@user), class: 'btn btn-default' %>
+    <%= link_to 'Posts', user_posts_path(@user), class: 'btn-sm btn btn-info' %>
+     <%= link_to 'Back', root_path(@user), class: 'btn-sm btn btn-default' %>
   </div>
   </section>
   <section class="py-5  container">
     <div class="row py-lg-5">
     <div class="col-lg-3 col-md-2"></div>
       <div class="col-lg-6 col-md-8 mx-auto">
-      <h3>Posts:<%= @user.posts.count %> </h3>
+      <h3 class="text-center">Posts:</h3>
         <% @user.posts.each do |post| %>
         <div class="well">
         <h4><%= post.title%></h4>
-        <%= link_to 'Read more', user_post_path(post), class: 'btn btn-default' %>
+        <%= link_to 'Read more', user_post_path(post), class: 'btn-sm btn btn-default' %>
         </div>
         <% end %>
       </div>

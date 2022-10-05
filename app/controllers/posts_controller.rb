@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_user_id, except: [:new]
-  def index; end
+  def index
+    @posts = @user.posts.all
+  end
 
   def new; end
 

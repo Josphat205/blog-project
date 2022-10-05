@@ -7,8 +7,14 @@
           <% @users.each do |u|%>
        <div class="well">
          <h3>Username: <%= u.name %></h3>
+         <div class="">
+         <p class="text-center">
+         Number of posts: 
+         <%= u.posts.count %>
+         </p>
+         </div>
          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-         <%= link_to 'show user', user_path(u), class: 'btn btn-default' %>
+         <%= link_to 'show user', user_path(u), class: 'btn-sm btn btn-default' %>
          </div>
       </div>
       <% end %>

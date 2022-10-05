@@ -2,14 +2,23 @@
     <div class="row py-lg-5">
     <div class="col-lg-3 col-md-2"></div>
       <div class="col-lg-6 col-md-8 mx-auto">
-      <h3>Posts:<%= @user.posts.count %> </h3>
+      <h3 class="text-center">Posts:<%= @user.posts.count %> </h3>
         <% @user.posts.each do |post| %>
         <div class="well">
         <h4><%= post.title%></h4>
-        <p><%= post.text%></p>
+        <small>comments:<%= post.comments.count%> likes<%= post.likes.count%></small><br>
+         <%= link_to 'Read more', user_post_path(@user,post.id), class: 'btn-sm btn btn-primary' %>
+        <%= link_to 'Back', user_path(@user), class: 'btn-sm btn btn-default' %>
         </div>
+          <div class="well">
+          <h5>Comments:<%= post.comments.count %> </h5>
+          <% post.comments.each do |comment| %>
+          <p>User:<%= comment.author_id%> <%= comment.text%></p>
+        <% end %>
+          </div>
         <% end %>
       </div>
       <div class="col-lg-3 col-md-2"></div>
     </div>
   </section>
+ 
